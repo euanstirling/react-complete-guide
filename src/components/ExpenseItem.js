@@ -22,6 +22,10 @@ import Card from './Card';
 import './ExpenseItem.css';
 
 const ExpenseItem = (props) => {
+  // use prefix HANDLE for function names that are for event handlers. For props prefeix with ON
+  const handleClick = () => {
+    console.log('Clicked!!!!!!');
+  };
   return (
     <Card className='expense-item'>
       <ExpenseDate date={props.date}></ExpenseDate>
@@ -29,6 +33,8 @@ const ExpenseItem = (props) => {
         <h2>{props.title}</h2>
         <div className='expense-item__price'>£{props.amount}</div>
       </div>
+      {/* add event listener to a react element. Add a JS function or point to a function, use ON to list possible event listeners*/}
+      <button onClick={handleClick}>Change Title</button>
     </Card>
   );
 };
