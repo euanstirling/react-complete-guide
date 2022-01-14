@@ -17,20 +17,28 @@
 // const day = props.date.toLocaleString('en-US', { day: '2-digit' });
 // const year = props.date.getFullYear();
 
+// Extract specifically named things from REACT library
+// useState allows us to define values by state where changes in these values should be reflected in the component code (useState is a React hook, must be called inside react component function, it returns an array with two elements (1st element is current state value, 2nd element is a function to allow update of state) and you can use array destructuring to access the values)
+import React, { useState } from 'react';
+
 import ExpenseDate from './ExpenseDate';
 import Card from './Card';
 import './ExpenseItem.css';
 
 const ExpenseItem = (props) => {
+  const [title, setTitle] = useState(props.title);
+
   // use prefix HANDLE for function names that are for event handlers. For props prefeix with ON
   const handleClick = () => {
-    console.log('Clicked!!!!!!');
+    setTitle('Updated!');
+    console.log(title);
   };
+
   return (
     <Card className='expense-item'>
       <ExpenseDate date={props.date}></ExpenseDate>
       <div className='expense-item__description'>
-        <h2>{props.title}</h2>
+        <h2>{title}</h2>
         <div className='expense-item__price'>£{props.amount}</div>
       </div>
       {/* add event listener to a react element. Add a JS function or point to a function, use ON to list possible event listeners*/}
