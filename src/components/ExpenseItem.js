@@ -38,7 +38,7 @@ const ExpenseItem = (props) => {
     <Card className='expense-item'>
       <ExpenseDate date={props.date}></ExpenseDate>
       <div className='expense-item__description'>
-        <h2>{title}</h2>
+        <h2>{props.title}</h2>
         <div className='expense-item__price'>£{props.amount}</div>
       </div>
       {/* add event listener to a react element. Add a JS function or point to a function, use ON to list possible event listeners*/}
